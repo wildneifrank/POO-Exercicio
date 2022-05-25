@@ -83,13 +83,16 @@ public class Disciplina {
 	public String toString() {
 		Collections.sort(this.alunosMatriculados, Comparator.comparing(Aluno::getMatricula));
 		Collections.sort(this.alunosEspera, Comparator.comparing(Aluno::getMatricula));
-		String texto1 = "Disciplina: " + this.nome +"\n" +"Professor: " + this.professor.getTitulo() + this.professor.getNome() + "\n" + "Número de Alunos Matrículados: " + this.alunosMatriculados.size() + "\n\n";
-		
+		String texto = "Disciplina: " + this.nome +"\n" +"Professor: " + this.professor.getTitulo() + this.professor.getNome() + "\n" + "NÃºmero de Alunos MatrÃ­culados: " + this.alunosMatriculados.size() + "\n\n";
 		for(Aluno aluno : this.alunosMatriculados) {
-			
+			texto = texto + aluno.getMatricula() + "-" + aluno.getNome() + "\n";
+		}
+		texto = texto + "\nLista de Espera\nNumero de Alunos em Lista de Espera: " + this.alunosEspera.size() + "\n\n";
+		for(Aluno aluno : this.alunosEspera) {
+			texto = texto + aluno.getMatricula() + "-" + aluno.getNome() + "\n";
 		}
 		
-		return ;
+		return texto;
 	}
 	
 	
